@@ -1,22 +1,23 @@
-function Details() {
+function Details({ ip, location, timezone, isp }) {
+    
     return (
         <div className="details-container">
             <div className="details">
                 <div>
                     <h5>IP Address</h5>
-                    <h2>192.212.174.101</h2>
+                    <h2>{ip}</h2>
                 </div>
                 <div className="detail">
                     <h5>Location</h5>
-                    <h2>Brooklyn, NY 10001</h2>
+                    <h2>{location}</h2>
                 </div>
                 <div className="detail">
                     <h5>Timezone</h5>
-                    <h2>UTC - 05:00</h2>
+                    <h2>{timezone}</h2>
                 </div>
                 <div className="detail">
                     <h5>ISP</h5>
-                    <h2>SpaceX Starlink</h2>
+                    <h2>{isp}</h2>
                 </div>
             </div>
         </div>
