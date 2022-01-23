@@ -27,6 +27,7 @@ function App() {
 
   const handleSubmit = (e) => {
     console.log(e);
+    setSearched(e);
   }
 
   const setDetailValues = (data) => {
@@ -39,6 +40,7 @@ function App() {
 
   return (
     <div className="App">
+      {console.log(details)}
       <Header
         handleSubmit={handleSubmit}
       />
