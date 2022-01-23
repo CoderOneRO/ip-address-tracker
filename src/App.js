@@ -15,15 +15,14 @@ function App() {
   const [searched, setSearched] = useState('');
 
   useEffect(() => {
+    const fetchData = () => {
+      fetch(`https://geo.ipify.org/api/v2/country?apiKey=at_irW4OTX8X20GcbWOZoja7bCscLCBE&ipAddress=${searched}`)
+        .then(response => response.json())
+        .then(data => setDetailValues(data))
+        .catch(err => console.log(err))
+    }
     fetchData();
-  }, [])
-
-  const fetchData = () => {
-    fetch(`https://geo.ipify.org/api/v2/country?apiKey=at_irW4OTX8X20GcbWOZoja7bCscLCBE&ipAddress=${searched}`)
-      .then(response => response.json())
-      .then(data => setDetailValues(data))
-      .catch(err => console.log(err))
-  }
+  }, [searched])
 
   const handleSubmit = (e) => {
     console.log(e);
