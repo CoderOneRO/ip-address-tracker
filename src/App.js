@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = () => {
-      fetch(`https://geo.ipify.org/api/v2/country?apiKey=at_irW4OTX8X20GcbWOZoja7bCscLCBE&ipAddress=${searched}`)
+      fetch(`https://geo.ipify.org/api/v2/country?apiKey=at_UY6Hq4CmUxKMxfQAzcj3MgXfaWwC8&ipAddress=${searched}`)
         .then(response => response.json())
         .then(data => setDetailValues(data))
         .catch(err => console.log(err))
@@ -25,6 +25,7 @@ function App() {
   }, [searched])
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     console.log(e);
     setSearched(e);
   }
@@ -41,6 +42,8 @@ function App() {
     <div className="App">
       {console.log(details)}
       <Header
+        searched={searched}
+        setSearched={setSearched}
         handleSubmit={handleSubmit}
       />
       <Map />
