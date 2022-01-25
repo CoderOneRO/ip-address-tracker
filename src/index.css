@@ -63,6 +63,7 @@ input[type="text"] {
     min-height: 150px;
     border: none;
     border-radius: 15px;
+    filter: drop-shadow(0 0 0.75rem hsl(0, 0%, 17%));
     position: relative;
     bottom: 80px;
     z-index: 1000;
