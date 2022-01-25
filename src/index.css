@@ -167,10 +167,12 @@ input[type="text"] {
 
     .details h5 {
         margin: 10px;
+        font-size: 14px;
     }
 
     .details h2 {
         margin: 10px;
+        font-size: 18px;
     }
   }
 
