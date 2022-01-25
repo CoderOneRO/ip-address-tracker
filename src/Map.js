@@ -4,7 +4,7 @@ import logoLocation from "./images/icon-location.svg";
 
 function Map({ ipData, isLoaded, error }) {
 
-    const newMapIcon = L.icon({ iconUrl: logoLocation, iconSize: [46, 56] });
+    const newMapIcon = L.icon({ iconUrl: logoLocation, iconSize: [40, 50] });
 
     return (
         <div className="map">

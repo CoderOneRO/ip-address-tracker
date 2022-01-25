@@ -6,7 +6,7 @@ function Header({ getDomainOrIp, inputValue, setInputValue }) {
     };
 
     return (
-        <div className="header">
+        <header className="header">
             <h1>IP Address Tracker</h1>
             <form onSubmit={getDomainOrIp}>
                 <input
@@ -22,7 +22,7 @@ function Header({ getDomainOrIp, inputValue, setInputValue }) {
                     className="input-submit"
                 />
             </form>
-        </div>
+        </header>
     );
 }
 

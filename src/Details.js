@@ -12,15 +12,18 @@ function Details({ ipData, isLoaded, error }) {
                     <h5>IP Address</h5>
                     <h2>{isLoaded ? ipData.ip : "Loading..."}</h2>
                 </div>
-                <div className="detail">
+                <span className="divider"></span>
+                <div>
                     <h5>Location</h5>
                     <h2>{isLoaded ? `${ipData.location.city}, ${ipData.location.region}` : "Loading..."}</h2>
                 </div>
-                <div className="detail">
+                <span className="divider"></span>
+                <div>
                     <h5>Timezone</h5>
                     <h2>{isLoaded ? ipData.location.timezone : "Loading..."}</h2>
                 </div>
-                <div className="detail">
+                <span className="divider"></span>
+                <div>
                     <h5>ISP</h5>
                     <h2>{isLoaded ? ipData.isp : "Loading..."}</h2>
                 </div>
