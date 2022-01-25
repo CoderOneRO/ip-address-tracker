@@ -98,3 +98,8 @@ input[type="text"] {
     width: 100vw;
     height: 100vw;
 }
+
+.error {
+    color: red;
+    padding-left: 50px;
+  }

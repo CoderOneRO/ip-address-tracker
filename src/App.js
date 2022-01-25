@@ -1,51 +1,59 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import Header from './Header';
-import Map from './Map';
 import Details from './Details';
-
+import Map from './Map';
+import Error from "./Error";
+import "./index.css";
 
 function App() {
+  const [error, setError] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [ipData, setIpData] = useState([]);
+  const [inputValue, setInputValue] = useState("");
 
-  const [ip, setIp] = useState('');
-  const [location, setLocation] = useState('');
-  const [timezone, setTimezone] = useState('');
-  const [isp, setIsp] = useState('');
+  const URL = 'https://geo.ipify.org/api/v2/country,city,vpn?apiKey=at_4k7FifjFHjXGl2VMaTYSQWfubI378&ipAddress=';
 
-  const [searched, setSearched] = useState('');
-  const [search, setSearch] = useState('');
-
-  const URL = 'https://geo.ipify.org/api/v2/country?apiKey=at_UY6Hq4CmUxKMxfQAzcj3MgXfaWwC8&ipAddress=';
+  const fetchData = async (apiUrl) => {
+    try {
+      const promise = await fetch(apiUrl);
+      const res = await promise.json();
+      setIpData(res);
+      if (res.code) throw new Error("Error");
+    } catch (e) {
+      setError(true);
+    } finally {
+      setIsLoaded(true);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = () => {
-      fetch(`${URL}${search}`)
-        .then(response => response.json())
-        .then(data => setDetailValues(data))
-        .catch(err => console.log(err))
-    }
-    fetchData();
-  }, [search])
+    fetchData(`${URL}`);
+  }, []);
 
-  const setDetailValues = (data) => {
-      setIp(data.ip);
-      setTimezone(data.location.timezone);
-      setIsp(data.isp)
-      setLocation(data.location.country + " " + data.location.region);
-  }
+  const getDomainOrIp = (e) => {
+    e.preventDefault();
+    setError(false);
+    setIsLoaded(false);
+    fetchData(`${URL}${inputValue}`);
+    setInputValue("");
+  };
 
   return (
     <div className="App">
       <Header
-        searched={searched}
-        setSearched={setSearched}
-        setSearch={setSearch}
+        getDomainOrIp={getDomainOrIp}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
       />
-      <Map />
       <Details
-        ip={ip}
-        location={location}
-        timezone={timezone}
-        isp={isp}
+        ipData={ipData}
+        isLoaded={isLoaded}
+        error={error}
+      />
+      <Map
+        ipData={ipData}
+        isLoaded={isLoaded}
+        error={error}
       />
     </div>
   );
