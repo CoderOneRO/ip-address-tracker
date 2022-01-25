@@ -43,6 +43,10 @@ input[type="text"] {
     cursor: pointer;
 }
 
+.input-submit:hover {
+    background-color: hsl(0, 1%, 17%);
+}
+
 .details-container {
     display: flex;
     flex-direction: row;
@@ -63,7 +67,7 @@ input[type="text"] {
     min-height: 150px;
     border: none;
     border-radius: 15px;
-    filter: drop-shadow(0 0 0.75rem hsl(0, 0%, 17%));
+    filter: drop-shadow(0 0 0.75rem hsl(0, 0%, 27%));
     position: relative;
     bottom: 80px;
     z-index: 1000;
