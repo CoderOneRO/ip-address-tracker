@@ -76,7 +76,7 @@ input[type="text"] {
 .details h5 {
     color: hsl(0, 0%, 59%);
     text-transform: uppercase;
-    margin: 30px;
+    margin: 30px 30px 30px 20px;
     font-weight: 500;
 }
 
